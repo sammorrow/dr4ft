@@ -456,6 +456,6 @@ input[type=button]:disabled:active, button:disabled:active {
 
 .scout {
   display: block;
-  margin: 0 auto;
+  margin: 50px auto;
   opacity: 0.85
 }
