@@ -15,7 +15,7 @@ export default React.createClass({
     App.send('join', 'lobby')
   },
   render() {
-    document.title = STRINGS.BRANDING.SITE_TITLE
+    document.title = 'obie cube draftin tool'
 
     return d.div({ className: 'container' },
       d.div({ className: 'lobby' },

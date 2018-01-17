@@ -12,8 +12,8 @@ export let STRINGS = {
     MOTD: null, // message of the day; can be a React element
 
     FOOTER: d.div({},
-      d.strong({}, 'dr4ft'),
-      ' is a fork of the ',
+      d.strong({}, 'kep-dr4ft-boiz'),
+      ' is a fork of a fork of the ',
       d.code({}, 'drafts.ninja'),
       ' arxanas fork of the ',
       d.code({}, 'draft'),
