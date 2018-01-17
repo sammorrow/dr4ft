@@ -12,7 +12,7 @@ var router = require('./src/router')
 
 var server = http.createServer(function(req, res) {
   send(req, req.url, { root: 'public' }).pipe(res)
-}).listen(CONFIG.PORT)
+}).listen(process.env.PORT || CONFIG.PORT || 1337)
 var eioServer = eio(server).on('connection', router)
 
 require('log-timestamp')
