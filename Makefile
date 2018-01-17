@@ -11,7 +11,6 @@ server_config := config.server.js
 ${traceur}: install
 
 install:
-	npm install
 	mkdir -p public/lib
 	ln -sf ${node}/normalize.css/normalize.css public/lib
 	ln -sf ${node}/react/dist/react.js public/lib
