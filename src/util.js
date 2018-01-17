@@ -30,10 +30,9 @@ function transform(cube, seats, type) {
   for (var cardName of list)
     if (!(cardName in Cards))
       bad.push(cardName)
-      console.log(Cards, 'hello', JSON.stringify(Cards))
-
 
   if (bad.length) {
+    console.log(Cards, 'hello', JSON.stringify(Cards))
     var msg = `invalid cards: ${bad.splice(-10).join('; ')}`
     if (bad.length)
       msg += `; and ${bad.length} more`
