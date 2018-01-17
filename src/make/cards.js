@@ -1,6 +1,6 @@
 var fs = require('fs')
 var _ = require('../_')
-var raw = require('../../data/AllSets')
+var raw = require('../../data/AllCards.json')
 
 var COLORS = {
   W: 'White',
