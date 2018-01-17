@@ -3,7 +3,7 @@ all: install cards score js
 
 node := ${CURDIR}/node_modules
 all_sets := ${CURDIR}/data/AllSets.json
-traceur := ${node}/.bin/traceur
+traceur := ${CURDIR}/node_modules/.bin/traceur
 
 client_config := config.client.js
 server_config := config.server.js
@@ -37,7 +37,7 @@ score:
 	-node src/make score
 
 js: ${traceur} ${all_sets} ${client_config} ${server_config}
-	${traceur} --out ./public/lib/app.js ./public/src/init.js
+	${traceur} --out public/lib/app.js public/src/init.js
 
 # "order-only" prerequisite
 ${client_config}: | ${client_config}.default
