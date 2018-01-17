@@ -3,7 +3,7 @@ let d = React.DOM
 export let STRINGS = {
   BRANDING: {
     SITE_TITLE: ['dr4ft','com'].join('.'),
-    SITE_NAME: d.span({},'DR',d.img({src:'4.png',alt:'4'}),'FT', d.img({src:'imscoutin.jpg',alt:"i'm scoutin'"})),
+    SITE_NAME: d.span({},'DR',d.img({src:'4.png',alt:'4'}),'FT'),
     DEFAULT_USERNAME: 'obie',
     PAYPAL: '',
   },
