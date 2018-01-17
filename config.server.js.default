@@ -2,7 +2,7 @@
 
 const execSync = require('child_process').execSync
 
-let versionInfo = execSync('git describe --always --long')
+let versionInfo = execSync(1)
   .toString()
   .trim()
 let versionInfoParts = versionInfo.split('-')
