@@ -37,7 +37,7 @@ score:
 	-node src/make score
 
 js: ${traceur} ${all_sets} ${client_config} ${server_config}
-	${traceur} --out public/lib/app.js public/src/init.js
+	${traceur} --out ./public/lib/app.js ./public/src/init.js
 
 # "order-only" prerequisite
 ${client_config}: | ${client_config}.default
