@@ -5,7 +5,7 @@
   "author": "James Campos <james.r.campos@gmail.com>",
   "repository": "aeosynth/draft",
   "scripts": {
-    "start": "make run"
+    "start": "node run"
   },
   "dependencies": {
     "ee": "git://github.com/aeosynth/ee",
