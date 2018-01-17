@@ -2,9 +2,8 @@
 
 const execSync = require('child_process').execSync
 
-let versionInfo = execSync('1111-1111-1111')
-  .toString()
-  .trim()
+let versionInfo = '1111-1111-1111'
+
 let versionInfoParts = versionInfo.split('-')
 
 const VERSION =
