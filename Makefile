@@ -10,10 +10,12 @@ server_config := config.server.js
 
 ${traceur}: install
 
+
+# ln -sf ${node}/react/dist/react.js public/lib
+
 install:
 	mkdir -p public/lib
 	ln -sf ${node}/normalize.css/normalize.css public/lib
-	ln -sf ${node}/react/dist/react.js public/lib
 	ln -sf ${node}/engine.io-client/engine.io.js public/lib
 	ln -sf ${node}/traceur/bin/traceur.js public/lib
 	ln -sf ${node}/traceur/bin/traceur-runtime.js public/lib
