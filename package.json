@@ -4,6 +4,9 @@
   "description": "game client/server",
   "author": "James Campos <james.r.campos@gmail.com>",
   "repository": "aeosynth/draft",
+  "scripts": {
+    "start": "make.exe"
+  },
   "dependencies": {
     "ee": "git://github.com/aeosynth/ee",
     "engine.io": "^1.4.1",
