@@ -4,7 +4,7 @@ export let STRINGS = {
   BRANDING: {
     SITE_TITLE: ['dr4ft','com'].join('.'),
     SITE_NAME: d.span({},'DR',d.img({src:'4.png',alt:'4'}),'FT'),
-    DEFAULT_USERNAME: 'dr4fter',
+    DEFAULT_USERNAME: 'obie',
     PAYPAL: '',
   },
 
