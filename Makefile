@@ -1,8 +1,8 @@
 .PHONY: all install clean cards score js config
 all: install cards score js
 
-node := ./node_modules
-all_sets := ./data/AllSets.json
+node := ${CURDIR}/node_modules
+all_sets := ${CURDIR}/data/AllSets.json
 traceur := ${node}/.bin/traceur
 
 client_config := config.client.js
