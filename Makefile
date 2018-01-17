@@ -32,8 +32,10 @@ cards: ${all_sets}
 custom:
 	node src/make custom
 
+#-so ${all_sets} 
+
 ${all_sets}:
-	curl -so ${all_sets} https://mtgjson.com/json/AllSets.json
+	curl https://mtgjson.com/json/AllSets.json
 
 score:
 	-node src/make score
