@@ -30,8 +30,7 @@ export default React.createClass({
         Motd(),
         STRINGS.BRANDING.PAYPAL,
         STRINGS.PAGE_SECTIONS.FOOTER,
-        Version(),
-        d.img({src:'imscoutin.jpg', alt:"i'm scoutin'"})),
+        d.img({className: 'scout', src:'imscoutin.jpg', alt:"i'm scoutin'"})),
       Chat())
   }
 })

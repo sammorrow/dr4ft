@@ -453,3 +453,9 @@ input[type=button]:disabled:active, button:disabled:active {
 .copy-controls {
   margin-top: 3px;
 }
+
+.scout {
+  display: block;
+  margin: 0 auto;
+  opacity: 0.85
+}
