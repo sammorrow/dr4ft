@@ -26,11 +26,12 @@ function transform(cube, seats, type) {
   assert(min <= list.length && list.length <= 1e5,
     `this cube needs between ${min} and 100,000 cards; it has ${list.length}`)
 
-  console.log(Cards)
   var bad = []
   for (var cardName of list)
     if (!(cardName in Cards))
       bad.push(cardName)
+      console.log(Cards, 'hello', JSON.stringify(Cards))
+
 
   if (bad.length) {
     var msg = `invalid cards: ${bad.splice(-10).join('; ')}`
