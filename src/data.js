@@ -1,6 +1,5 @@
 try {
   var Cards = require('../data/cards')
-  console.log(Cards)
   var Sets = require('../data/sets')
 } catch(err) {
   Cards = {}
