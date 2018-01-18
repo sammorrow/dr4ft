@@ -32,7 +32,6 @@ function transform(cube, seats, type) {
       bad.push(cardName)
 
   if (bad.length) {
-    console.log(Cards, 'hello', JSON.stringify(Cards))
     var msg = `invalid cards: ${bad.splice(-10).join('; ')}`
     if (bad.length)
       msg += `; and ${bad.length} more`
