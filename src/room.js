@@ -46,7 +46,6 @@ module.exports = class extends EventEmitter {
     this.messages.shift()
     this.messages.push(msg)
     for (sock of this.socks)
-      if (options && options['scout']) sock.send('secret', msg)
       sock.send('hear', msg)
   }
 }
