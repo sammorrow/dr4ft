@@ -13,13 +13,13 @@ export default React.createClass({
     App.on('hear', this.hear)
     App.on('chat', messages => this.setState({ messages }))
     App.on('secret', this.scout)
-    App.on('card', this.parseCard)
+    App.on('error', this.handleError)
   },
   componentWillUnmount() {
     App.off('hear')
     App.off('chat')
     App.off('secret')
-    App.off('card')
+    App.off('error')
   },
   render() {
     // must be mounted to receive messages
@@ -30,9 +30,8 @@ export default React.createClass({
         this.Entry()))
   },
 
-  parseCard(cardJSON){
-    if (!cardJSON) console.log('failed')
-    console.log(cardJSON)
+  handleError(data){
+    console.log('Error')
   },
   hear(msg) {
     this.state.messages.push(msg)
@@ -50,6 +49,8 @@ export default React.createClass({
       return
 
     let {time, name, text} = msg
+    let url = null;
+    if (msg.url) url = msg.url;
     let date = new Date(time)
     let hours   = _.pad(2, '0', date.getHours())
     let minutes = _.pad(2, '0', date.getMinutes())
@@ -60,7 +61,8 @@ export default React.createClass({
       ' ',
       d.span({ className: 'name' }, name),
       ' ',
-      text)
+      text, 
+      url ? d.img({src:`${url}`, alt:`${url}`}) : null)
   },
 
   Entry() {

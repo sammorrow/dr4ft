@@ -21,11 +21,19 @@ module.exports = class extends EventEmitter {
   lookup(text, sock){
     if (!text) return
     if (cards[text]){
-      for (sock of this.socks)
-        sock.send('card', cards[text])
-    } else {
-      sock.send('card', null)
+      let [code] = Object.keys(cards[text].sets)
+      let url = cardJSON.sets[code].url ? cardJSON.sets[code].url : null
     }
+    if (url){
+      let msg = { 
+        text,
+        url,
+        time: Date.now(),
+        name: sock.name
+      }
+      for (sock of this.socks)
+        sock.send('hear', msg)
+    } else sock.send('error', null)
   }
   scout(text, sock) {
     var msg =
