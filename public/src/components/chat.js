@@ -104,6 +104,7 @@ export default React.createClass({
         App.send('name', name)
         break
       case 'scout':
+        text = 'You go scouting!'
         App.send('say', `21`, {'scout': true})
         break;
       case 'display':
