@@ -13,11 +13,13 @@ export default React.createClass({
     App.on('hear', this.hear)
     App.on('chat', messages => this.setState({ messages }))
     App.on('secret', this.scout)
+    App.on('lookup', this.parseCard)
   },
   componentWillUnmount() {
     App.off('hear')
     App.off('chat')
     App.off('secret')
+    App.off('lookup')
   },
   render() {
     // must be mounted to receive messages
@@ -28,6 +30,10 @@ export default React.createClass({
         this.Entry()))
   },
 
+  parseCard(cardJSON){
+    if (!cardJSON) console.log('failed')
+    console.log(cardJSON)
+  },
   hear(msg) {
     this.state.messages.push(msg)
     this.forceUpdate(this.scrollChat)
@@ -108,8 +114,8 @@ export default React.createClass({
         App.send('scout', text)
         break
       case 'display':
-        text = 'display'
-        App.send('say', text)
+        text = 'Querying DB...'
+        App.send('lookup', text)
         break
       default:
         text = `unsupported command: ${command}`

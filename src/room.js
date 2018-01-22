@@ -1,5 +1,6 @@
 let {EventEmitter} = require('events')
 let Sock = require('./sock')
+let cards = require('../data/cards')
 
 module.exports = class extends EventEmitter {
   constructor({isPrivate}) {
@@ -14,9 +15,19 @@ module.exports = class extends EventEmitter {
     sock.on('say', this.say.bind(this))
     sock.on('name', this.name.bind(this))
     sock.on('scout', this.scout.bind(this))
+    sock.on('lookup', this.lookup.bind(this))
     sock.send('chat', this.messages)
   }
-   scout(text, sock) {
+  lookup(text, sock){
+    if (!text) return
+    if (cards[text]){
+      for (sock of this.socks)
+        sock.send('card', cards[text])
+    } else {
+      sock.send('card', null)
+    }
+  }
+  scout(text, sock) {
     var msg =
     { 
       text,
