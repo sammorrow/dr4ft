@@ -20,10 +20,9 @@ module.exports = class extends EventEmitter {
     let msg = {
       text: 'hello',
       time: Date.now(),
-      name: sock.name
+      name: 'me'
     }
-    for (sock of this.socks)
-      sock.send('hear', msg)
+    sock.send('hear', msg)
   }
   name(name, sock) {
     if (typeof name !== 'string')
