@@ -11,12 +11,13 @@ export default React.createClass({
   componentDidMount() {
     this.refs.entry.getDOMNode().focus()
     App.on('hear', this.hear)
-    App.on('secret', this.scout)
     App.on('chat', messages => this.setState({ messages }))
+    App.on('secret', this.scout)
   },
   componentWillUnmount() {
     App.off('hear')
     App.off('chat')
+    App.off('secret')
   },
   render() {
     // must be mounted to receive messages
@@ -32,7 +33,7 @@ export default React.createClass({
     this.forceUpdate(this.scrollChat)
   },
   scout(){
-    document.getElementById('scout').play()
+    // document.getElementById('scout').play()
   },
   scrollChat() {
     let el = this.refs.messages.getDOMNode()
