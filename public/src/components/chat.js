@@ -114,7 +114,7 @@ export default React.createClass({
         App.send('scout', text)
         break
       case 'display':
-        text = 'Querying DB...'
+        text = 'ventifact bottle'
         App.send('lookup', text)
         break
       default:
