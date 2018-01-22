@@ -45,7 +45,9 @@ export default React.createClass({
     this.forceUpdate(this.scrollChat)
   },
   scout(){
-    document.getElementById('scout').play()
+    let scoutin = document.getElementById('scout')
+    scoutin.currentTime = 0
+    scoutin.play()
   },
   scrollChat() {
     let el = this.refs.messages.getDOMNode()
