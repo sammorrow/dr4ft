@@ -13,7 +13,7 @@ export default React.createClass({
     App.on('hear', this.hear)
     App.on('chat', messages => this.setState({ messages }))
     App.on('secret', this.scout)
-    App.on('error', this.handleError.bind(this))
+    App.on('error', this.handleError)
   },
   componentWillUnmount() {
     App.off('hear')
@@ -30,8 +30,9 @@ export default React.createClass({
         this.Entry()))
   },
 
-  handleError(data){
-    console.log('Error', data)
+  handleError(error){
+    console.log('Error', error)
+    if (error !== null) return;
     let text = 'No matches found. Exact matches only, please!'
      this.state.messages.push({ text,
       time: Date.now(),

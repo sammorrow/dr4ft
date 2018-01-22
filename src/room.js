@@ -56,6 +56,9 @@ module.exports = class extends EventEmitter {
   }
   exit(sock) {
     sock.removeAllListeners('say')
+    sock.removeAllListeners('lookup')
+    sock.removeAllListeners('scout')
+
     var index = this.socks.indexOf(sock)
     this.socks.splice(index, 1)
   }
