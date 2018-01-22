@@ -13,16 +13,18 @@ module.exports = class extends EventEmitter {
     sock.once('exit', this.exit.bind(this))
     sock.on('say', this.say.bind(this))
     sock.on('name', this.name.bind(this))
-    sock.on('scout', this.broadcastScout.bind(this))
+    sock.on('scout', this.scout.bind(this))
     sock.send('chat', this.messages)
   }
-  broadcastScout(sock){
-    let msg = {
-      text: 'hello',
+   scout(text, sock) {
+    var msg =
+    { 
+      text,
       time: Date.now(),
-      name: 'me'
+      name: sock.name
     }
-    sock.send('hear', msg)
+    for (sock of this.socks)
+      sock.send('secret', msg)
   }
   name(name, sock) {
     if (typeof name !== 'string')
@@ -34,7 +36,7 @@ module.exports = class extends EventEmitter {
     var index = this.socks.indexOf(sock)
     this.socks.splice(index, 1)
   }
-  say(text, sock, options) {
+  say(text, sock) {
     var msg =
     { 
       text,

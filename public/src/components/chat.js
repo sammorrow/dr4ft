@@ -105,10 +105,11 @@ export default React.createClass({
         break
       case 'scout':
         text = 'You go scouting!'
-        App.send('say', `21`, {'scout': true})
-        break;
+        App.send('scout', text)
+        break
       case 'display':
-        App.send('say', text, 'link')
+        text = 'display'
+        App.send('say', text)
         break
       default:
         text = `unsupported command: ${command}`
