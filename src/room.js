@@ -16,7 +16,7 @@ module.exports = class extends EventEmitter {
     sock.on('scout', this.broadcastScout.bind(this))
     sock.send('chat', this.messages)
   }
-  broadcastScout(){
+  broadcastScout(sock){
     let msg = {
       text: 'hello',
       time: Date.now(),
