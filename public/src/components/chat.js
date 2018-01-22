@@ -31,7 +31,7 @@ export default React.createClass({
   },
 
   handleError(data){
-    console.log('Error')
+    console.log('Error', data)
   },
   hear(msg) {
     this.state.messages.push(msg)

@@ -22,7 +22,7 @@ module.exports = class extends EventEmitter {
     if (!text) return
     if (cards[text]){
       let [code] = Object.keys(cards[text].sets)
-      let url = cardJSON.sets[code].url ? cardJSON.sets[code].url : null
+      let url = cards[text].sets[code].url ? cards[text].sets[code].url : null
     }
     if (url){
       let msg = { 
@@ -31,9 +31,13 @@ module.exports = class extends EventEmitter {
         time: Date.now(),
         name: sock.name
       }
+      this.messages.shift()
+      this.messages.push(msg)
       for (sock of this.socks)
         sock.send('hear', msg)
-    } else sock.send('error', null)
+    } else {
+      sock.send('error', null)
+    }
   }
   scout(text, sock) {
     var msg =
