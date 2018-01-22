@@ -104,8 +104,10 @@ export default React.createClass({
         break
       case 'scout':
         App.send('scout')
+        break;
       case 'display':
         App.send('say', text, 'link')
+        break;
       default:
         text = `unsupported command: ${command}`
     }
