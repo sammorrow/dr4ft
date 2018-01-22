@@ -459,3 +459,8 @@ input[type=button]:disabled:active, button:disabled:active {
   margin: 50px auto;
   opacity: 0.85
 }
+
+.chat-img {
+  display: block;
+  margin: auto;
+}

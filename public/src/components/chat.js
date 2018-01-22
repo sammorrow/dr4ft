@@ -62,7 +62,7 @@ export default React.createClass({
       d.span({ className: 'name' }, name),
       ' ',
       text, 
-      url ? d.img({src:`${url}`, alt:`${url}`}) : null)
+      url ? d.img({className: 'chat-img', src:`${url}`, alt:`${url}`}) : null)
   },
 
   Entry() {
@@ -116,8 +116,11 @@ export default React.createClass({
         App.send('scout', text)
         break
       case 'display':
-        text = 'ventifact bottle'
-        App.send('lookup', text)
+        if (!arg) text = "please supply a card name"
+        else {
+          text = `Querying DB for ${arg}`
+          App.send('lookup', arg.toLowerCase())
+        }
         break
       default:
         text = `unsupported command: ${command}`
