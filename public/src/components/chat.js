@@ -33,7 +33,7 @@ export default React.createClass({
     this.forceUpdate(this.scrollChat)
   },
   scout(){
-    // document.getElementById('scout').play()
+    document.getElementById('scout').play()
   },
   scrollChat() {
     let el = this.refs.messages.getDOMNode()
@@ -105,10 +105,10 @@ export default React.createClass({
         break
       case 'scout':
         App.send('scout')
-        break;
+        break
       case 'display':
         App.send('say', text, 'link')
-        break;
+        break
       default:
         text = `unsupported command: ${command}`
     }
