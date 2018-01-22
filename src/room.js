@@ -17,9 +17,9 @@ module.exports = class extends EventEmitter {
     sock.send('chat', this.messages)
   }
   broadcastScout(){
-    for (sock of this.socks)
-      sock.send('secret', {'ok': true})
-  }
+  //   for (sock of this.socks)
+  //     sock.send('secret', {'ok': true})
+  // }
   name(name, sock) {
     if (typeof name !== 'string')
       return
