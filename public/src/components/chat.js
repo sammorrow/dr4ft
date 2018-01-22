@@ -13,7 +13,7 @@ export default React.createClass({
     App.on('hear', this.hear)
     App.on('chat', messages => this.setState({ messages }))
     App.on('secret', this.scout)
-    App.on('error', this.handleError)
+    App.on('error', this.handleError.bind(this))
   },
   componentWillUnmount() {
     App.off('hear')
@@ -32,6 +32,12 @@ export default React.createClass({
 
   handleError(data){
     console.log('Error', data)
+    let text = 'No matches found. Exact matches only, please!'
+     this.state.messages.push({ text,
+      time: Date.now(),
+      name: ''
+    })
+    this.forceUpdate(this.scrollChat)
   },
   hear(msg) {
     this.state.messages.push(msg)
@@ -85,8 +91,8 @@ export default React.createClass({
 
     if (!text)
       return
-
-    if (text[0] === '/')
+    if (text.slice(0, 2) === '[[' && text.slice(-2) === ']]') this.command(`display ${text.slice(2, -2)}`)
+    else if (text[0] === '/')
       this.command(text.slice(1))
     else
       App.send('say', text)
@@ -118,7 +124,7 @@ export default React.createClass({
       case 'display':
         if (!arg) text = "please supply a card name"
         else {
-          text = `Querying DB for ${arg}`
+          text = `Querying DB for '${arg}'...`
           App.send('lookup', arg.toLowerCase())
         }
         break
