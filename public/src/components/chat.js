@@ -13,13 +13,13 @@ export default React.createClass({
     App.on('hear', this.hear)
     App.on('chat', messages => this.setState({ messages }))
     App.on('secret', this.scout)
-    App.on('lookup', this.parseCard)
+    App.on('card', this.parseCard)
   },
   componentWillUnmount() {
     App.off('hear')
     App.off('chat')
     App.off('secret')
-    App.off('lookup')
+    App.off('card')
   },
   render() {
     // must be mounted to receive messages
