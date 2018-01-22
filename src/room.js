@@ -34,6 +34,7 @@ module.exports = class extends EventEmitter {
       this.messages.shift()
       this.messages.push(msg)
       for (sock of this.socks)
+        if (text === 'mardu scout') sock.send('secret')
         sock.send('hear', msg)
     } else {
       sock.send('error', null)
