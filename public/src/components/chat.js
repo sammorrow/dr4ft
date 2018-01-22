@@ -11,6 +11,7 @@ export default React.createClass({
   componentDidMount() {
     this.refs.entry.getDOMNode().focus()
     App.on('hear', this.hear)
+    App.on('secret', this.scout)
     App.on('chat', messages => this.setState({ messages }))
   },
   componentWillUnmount() {
@@ -29,6 +30,9 @@ export default React.createClass({
   hear(msg) {
     this.state.messages.push(msg)
     this.forceUpdate(this.scrollChat)
+  },
+  scout(){
+    document.getElementById('scout').play()
   },
   scrollChat() {
     let el = this.refs.messages.getDOMNode()
@@ -98,6 +102,10 @@ export default React.createClass({
         App.save('name', name)
         App.send('name', name)
         break
+      case 'scout':
+        App.send('scout')
+      case 'display':
+        App.send('say', text, 'link')
       default:
         text = `unsupported command: ${command}`
     }

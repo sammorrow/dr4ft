@@ -32,6 +32,7 @@ export default React.createClass({
   render() {
     return d.div({ className: 'container' },
       d.audio({ id: 'beep', src: '/media/beep.wav' }),
+      d.audio({ id: 'scout', src: '/media/scout.wav' }),
       d.div({ className: 'game' },
         d.div({ className: 'game-controls' },
           d.div({ className: 'game-status' }, this.Players(), this.Start()),
