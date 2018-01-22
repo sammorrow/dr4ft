@@ -34,24 +34,17 @@ module.exports = class extends EventEmitter {
     var index = this.socks.indexOf(sock)
     this.socks.splice(index, 1)
   }
-  say(text, sock, link) {
-    var msg = link ?
-    {
-      text,
-      link,
-      time: Date.now(),
-      name: sock.name
-    }
-    :
+  say(text, sock, options) {
+    var msg =
     { 
       text,
       time: Date.now(),
       name: sock.name
     }
-
     this.messages.shift()
     this.messages.push(msg)
     for (sock of this.socks)
+      if (options && options['scout']) sock.send('secret')
       sock.send('hear', msg)
   }
 }
