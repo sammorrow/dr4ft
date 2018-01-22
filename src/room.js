@@ -13,7 +13,7 @@ module.exports = class extends EventEmitter {
     sock.once('exit', this.exit.bind(this))
     sock.on('say', this.say.bind(this))
     sock.on('name', this.name.bind(this))
-    sock.on('scout', this.broadcastScout)
+    sock.on('scout', this.broadcastScout.bind(this))
     sock.send('chat', this.messages)
   }
   broadcastScout(){
