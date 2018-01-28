@@ -10,9 +10,6 @@ server_config := config.server.js
 
 ${traceur}: install
 
-
-# ln -sf ${node}/react/dist/react.js public/lib
-
 install:
 	mkdir -p public/lib
 	ln -sf ${node}/normalize.css/normalize.css public/lib
@@ -31,8 +28,6 @@ cards: ${all_sets}
 
 custom:
 	node src/make custom
-
-#-so ${all_sets} 
 
 ${all_sets}:
 	curl https://mtgjson.com/json/AllSets.json
